@@ -1,0 +1,13 @@
+# See https://openmod.github.io/openmod-docs/devdoc/concepts/configuration.html
+# You can delete this file if you do not need a configuration
+
+Servers:
+  ServerList:
+  - name: US1
+    ip: play.lyhme.gg
+    port: 27015
+    password: ""
+  - name: US2
+    ip: "109.109.109.109"
+    port: 27016
+    password: ""
