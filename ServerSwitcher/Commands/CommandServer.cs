@@ -12,7 +12,6 @@ namespace ServerSwitcher.Commands
 {
     [Command("server")]
     [CommandAlias("sv")]
-    [CommandSyntax("/server [name]")]
     public class CommandServer : OpenMod.Core.Commands.Command
     {
         private readonly ServerSwitcher m_plugin;
@@ -25,11 +24,17 @@ namespace ServerSwitcher.Commands
 
         protected override async Task OnExecuteAsync()
         {
+            if (Context.Parameters.Count == 0)
+            {
+                string serverNames = string.Join(", ", m_plugin.Servers.ServerList.Select(s => s.name));
+                await Context.Actor.PrintMessageAsync(m_StringLocalizer["commands:servers:servers", new { servers = serverNames }]);
+                return;
+            };
             var serverName = await Context.Parameters.GetAsync<string>(0);
 
             var server = m_plugin.Servers.ServerList.FirstOrDefault(s => s.name.Equals(serverName, StringComparison.OrdinalIgnoreCase));
 
-            UnturnedUser user = (UnturnedUser)Context.Actor;
+
 
             if (server == null)
             {
@@ -37,6 +42,7 @@ namespace ServerSwitcher.Commands
             }
             else
             {
+                UnturnedUser user = (UnturnedUser)Context.Actor;
                 await Context.Actor.PrintMessageAsync(m_StringLocalizer["commands:server:sending", new { name = server.name }]);
                 await UniTask.SwitchToMainThread();
                 user.Player.Player.sendRelayToServer(server.ipUint,

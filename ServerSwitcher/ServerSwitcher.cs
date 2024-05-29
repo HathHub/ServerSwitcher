@@ -40,8 +40,6 @@ namespace ServerSwitcher
             {
                 server.ipUint = IpConverter.IpToUint(server.ip);
             }
-
-            m_Logger.LogInformation(Servers.ToJson());
             m_Logger.LogInformation($"Loaded {Servers.ServerList.Count} servers!");
         }
 
