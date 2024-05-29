@@ -45,4 +45,3 @@ Servers:
     port: 27016
     password: ""
 ```
-```
