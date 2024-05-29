@@ -1,4 +1,3 @@
-```markdown
 # ServerSwitcher Plugin
 
 ## Overview
