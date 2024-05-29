@@ -1,7 +1,8 @@
+```markdown
 # ServerSwitcher Plugin
 
 ## Overview
-This plugin, called ServerSwitcher, facilitates server switching in Unturned, allowing users to seamlessly transition between different game servers. It provides commands to list available servers and switch to a specific server.
+ServerSwitcher facilitates server switching in Unturned, allowing users to seamlessly transition between different game servers. It provides commands to list available servers and switch to a specific server.
 
 ## Commands and Syntax
 
@@ -29,6 +30,7 @@ This plugin, called ServerSwitcher, facilitates server switching in Unturned, al
 
 ### Servers Configuration
 You can define multiple servers in the configuration file. Each server requires a name, IP address, port, and optional password.
+You can set the IP address of a server to be either a domain name or an IPv4 address. Both formats are supported in the configuration.
 
 #### Server Configuration Example
 ```yaml
@@ -42,3 +44,5 @@ Servers:
     ip: "109.109.109.109"
     port: 27016
     password: ""
+```
+```
